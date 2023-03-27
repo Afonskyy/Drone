@@ -1,0 +1,16 @@
+# Docker image base on caddy image
+
+FROM caddy:windowsservercore
+
+#WORKDIR
+WORKDIR /usr/share/caddy
+
+#copy all files
+
+COPY . .
+
+# expose port
+EXPOSE 80
+
+# run caddy
+CMD ["caddy", "run", "--config", "--CaddyFile", "--adapter","caddyfile"]
